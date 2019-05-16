@@ -1,0 +1,5 @@
+$unit: 0.5rem;
+
+@function unit($n) {
+  @return $n * $unit;
+}

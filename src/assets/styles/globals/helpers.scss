@@ -1,0 +1,81 @@
+$spaces: (
+  1: 1,
+  2: 2,
+  3: 4,
+  4: 8,
+  5: 12,
+);
+
+@for $i from 1 through 5 {
+  @each $name, $property in $directions {
+    .m#{$name}-#{$i} {
+      margin#{$property}: $unit * map-get($spaces, $i);
+    }
+
+    .nm#{$name}-#{$i} {
+      margin#{$property}: $unit * map-get($spaces, $i) * -1;
+    }
+
+    .p#{$name}-#{$i} {
+      padding#{$property}: $unit * map-get($spaces, $i);
+    }
+  }
+
+  .my-#{$i} {
+    margin-top: $unit * map-get($spaces, $i);
+    margin-bottom: $unit * map-get($spaces, $i);
+  }
+
+  .mx-#{$i} {
+    margin-left: $unit * map-get($spaces, $i);
+    margin-right: $unit * map-get($spaces, $i);
+  }
+
+  .py-#{$i} {
+    margin-top: $unit * map-get($spaces, $i);
+    margin-bottom: $unit * map-get($spaces, $i);
+  }
+
+  .px-#{$i} {
+    margin-left: $unit * map-get($spaces, $i);
+    margin-right: $unit * map-get($spaces, $i);
+  }
+
+  @each $br, $breakpoint in $breakpoints {
+    @include from($breakpoint) {
+      @each $name, $property in $directions {
+        .m#{$name}-#{$br}-#{$i} {
+          margin#{$property}: $unit * map-get($spaces, $i);
+        }
+
+        .nm#{$name}-#{$br}-#{$i} {
+          margin#{$property}: $unit * map-get($spaces, $i) * -1;
+        }
+
+        .p#{$name}-#{$br}-#{$i} {
+          padding#{$property}: $unit * map-get($spaces, $i);
+        }
+      }
+
+      .my-#{$br}-#{$i} {
+        margin-top: $unit * map-get($spaces, $i);
+        margin-bottom: $unit * map-get($spaces, $i);
+      }
+
+      .mx-#{$br}-#{$i} {
+        margin-left: $unit * map-get($spaces, $i);
+        margin-right: $unit * map-get($spaces, $i);
+      }
+
+      .py-#{$br}-#{$i} {
+        margin-top: $unit * map-get($spaces, $i);
+        margin-bottom: $unit * map-get($spaces, $i);
+      }
+
+      .px-#{$br}-#{$i} {
+        margin-left: $unit * map-get($spaces, $i);
+        margin-right: $unit * map-get($spaces, $i);
+      }
+    }
+  }
+}

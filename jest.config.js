@@ -42,5 +42,9 @@ module.exports = {
     'ts-jest': {
       babelConfig: true
     }
+  },
+
+  compilerOptions: {
+    experimentalDecorators: true
   }
 }

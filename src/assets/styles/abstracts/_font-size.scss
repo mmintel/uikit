@@ -1,0 +1,20 @@
+$base-font-size: 14px;
+
+$font-sizes: (
+  -3: 0.5rem,
+  -2: 0.75rem,
+  -1: 0.8rem,
+  0: 1rem,
+  1: 1.25rem,
+  2: 1.5rem,
+  3: 2rem,
+  4: 2.5rem,
+  5: 3.25rem,
+);
+
+@function font-size($n) {
+  @if not map-has-key($map: $font-sizes, $key: $n ) {
+    @error '"#{$n}" is not a known font-size.';
+  }
+  @return map-get($font-sizes, $n);
+}

@@ -1,0 +1,17 @@
+$indexes: (
+  1: 10,
+  2: 25,
+  3: 50,
+  4: 100,
+  5: 200,
+  6: 500,
+  7: 1000
+);
+
+@function z-index($n) {
+  @if not map-has-key($indexes, $n) {
+    @error 'Key #{$n} for map $indexes does not exist.';
+  }
+
+  @return map-get($indexes, $n);
+}

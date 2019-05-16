@@ -1,0 +1,8 @@
+@import './strip-unit';
+
+@function rem($val) {
+  $val: strip-unit($val);
+  $base: strip-unit($base-font-size);
+  $rem-value: $val / $base * 1rem;
+  @return $rem-value;
+}

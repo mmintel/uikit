@@ -1,0 +1,23 @@
+@import './rem';
+
+$breakpoints: (
+  xs: 320,
+  sm: 480,
+  md: 640,
+  lg: 1024,
+  xl: 1280,
+  xxl: 1600,
+);
+
+@mixin from($breakpoint) {
+  $val: $breakpoint;
+  @if type-of($breakpoint) == string {
+    @if not map-has-key($map: $breakpoints, $key: $breakpoint) {
+      @error '#{$breakpoint} is not a valid breakpoint.';
+    }
+    $val: map-get($breakpoints, $breakpoint);
+  }
+  @media (min-width: rem($val)) {
+    @content;
+  }
+}
