@@ -17,54 +17,6 @@ describe('Button Component', () => {
     });
   });
 
-  // describe('#props', () => {
-  //   it('complains when wrong `type` is passed', () => {
-  //     global.console = { warn: jest.fn(), error: jest.fn() };
-  //     shallowMount(Button, {
-  //       propsData: {
-  //         type: 'something',
-  //       },
-  //     });
-  //     expect(console.warn).toHaveBeenCalledTimes(1);
-  //     expect(console.error).toHaveBeenCalledTimes(1);
-  //   });
-  //   it('complains when wrong `size` is passed', () => {
-  //     global.console = { warn: jest.fn(), error: jest.fn() };
-  //     shallowMount(Button, {
-  //       propsData: {
-  //         size: 'something',
-  //       },
-  //     });
-  //     expect(console.warn).toHaveBeenCalledTimes(1);
-  //     expect(console.error).toHaveBeenCalledTimes(1);
-  //   });
-  //   it('complains when wrong `nativeType` is passed', () => {
-  //     global.console = { warn: jest.fn(), error: jest.fn() };
-  //     shallowMount(Button, {
-  //       propsData: {
-  //         nativeType: 'something',
-  //       },
-  //     });
-  //     expect(console.warn).toHaveBeenCalledTimes(1);
-  //     expect(console.error).toHaveBeenCalledTimes(1);
-  //   });
-  //   it('complains when `to` is not String or Object', () => {
-  //     global.console = { warn: jest.fn(), error: jest.fn() };
-  //     shallowMount(Button, {
-  //       propsData: {
-  //         to: 1,
-  //       },
-  //     });
-  //     shallowMount(Button, {
-  //       propsData: {
-  //         to: () => 'test',
-  //       },
-  //     });
-  //     expect(console.warn).toHaveBeenCalledTimes(2);
-  //     expect(console.error).toHaveBeenCalledTimes(2);
-  //   });
-  // });
-
   describe('#computed', () => {
     it('evaluates to the right classes', () => {
       const wrapper = shallowMount(Button, {
