@@ -37,11 +37,11 @@ import { Component, Prop } from 'vue-property-decorator';
   name: 'Button'
 })
 export default class extends Vue {
-  @Prop({ default: 'default' }) type: string;
-  @Prop({ default: 'medium' }) size: string;
+  @Prop({ default: 'default' }) type: 'default' | 'primary' | 'success' | 'error' | 'link';
+  @Prop({ default: 'medium' }) size: 'small' | 'medium' | 'large';
+  @Prop() nativeType: 'submit' | 'button';
+  @Prop() attached: 'left' | 'right';
   @Prop() to: object | string;
-  @Prop() nativeType: string;
-  @Prop() attached: string;
   @Prop() href: string;
   @Prop() text: boolean;
   @Prop() fake: boolean;
@@ -50,71 +50,37 @@ export default class extends Vue {
   @Prop() disabled: boolean;
   @Prop() block: boolean;
 
-  // props: {
-  //   type: VueTypes.oneOf([
-  //     'default',
-  //     'primary',
-  //     'success',
-  //     'error',
-  //     'link',
-  //   ]).def('default'),
-  //   size: VueTypes.oneOf([
-  //     'small',
-  //     'medium',
-  //     'large',
-  //   ]).def('medium'),
-  //   nativeType: VueTypes.oneOf([
-  //     'submit',
-  //     'button',
-  //   ]),
-  //   to: VueTypes.oneOfType([
-  //     VueTypes.object,
-  //     VueTypes.string,
-  //   ]),
-  //   attached: VueTypes.oneOf([
-  //     'left',
-  //     'right',
-  //   ]),
-  //   href: VueTypes.string,
-  //   text: VueTypes.bool.def(false),
-  //   fake: VueTypes.bool.def(false),
-  //   icon: VueTypes.bool.def(false),
-  //   dense: VueTypes.bool.def(false),
-  //   disabled: VueTypes.bool.def(false),
-  //   block: VueTypes.bool.def(false),
-  // },
-  // computed: {
-  //   component() {
-  //     if (this.to && this.$nuxt) return 'nuxt-link';
-  //     if (this.to && !this.$nuxt && this.$router) return 'router-link';
-  //     if (this.href) return 'a';
-  //     if (this.fake) return 'span';
-  //     return 'button';
-  //   },
-  //   classes() {
-  //     return [
-  //       'button',
-  //       `button--${this.type}`,
-  //       `button--${this.size}`,
-  //       this.$slots.badge ? 'button--has-badge' : null,
-  //       this.$slots.icon ? 'button--has-icon' : null,
-  //       this.fake ? 'button--fake' : null,
-  //       this.text ? 'button--text' : null,
-  //       this.icon ? 'button--icon': null,
-  //       this.dense ? 'button--dense' : null,
-  //       this.disabled ? 'button--disabled' : null,
-  //       this.block ? 'button--block' : null,
-  //       this.attached ? `button--attached-${this.attached}` : null,
-  //     ];
-  //   },
-  // },
+  $router: any;
+  $nuxt: any;
+
+  get component(): string {
+    if (this.to && this.$nuxt) return 'nuxt-link';
+    if (this.to && !this.$nuxt && this.$router) return 'router-link';
+    if (this.href) return 'a';
+    if (this.fake) return 'span';
+    return 'button';
+  }
+
+  get classes(): Array<string|null> {
+    return [
+      'button',
+      `button--${this.type}`,
+      `button--${this.size}`,
+      this.$slots.badge ? 'button--has-badge' : null,
+      this.$slots.icon ? 'button--has-icon' : null,
+      this.fake ? 'button--fake' : null,
+      this.text ? 'button--text' : null,
+      this.icon ? 'button--icon': null,
+      this.dense ? 'button--dense' : null,
+      this.disabled ? 'button--disabled' : null,
+      this.block ? 'button--block' : null,
+      this.attached ? `button--attached-${this.attached}` : null,
+    ];
+  }
 }
 </script>
 
 <style lang="scss">
-@import '../assets/styles/abstracts/';
-@import '~@mmintel/ui-core/styles/abstracts/font-size';
-
 .button {
   $types: (
     default,

@@ -14,11 +14,6 @@
                 "name": "button.spec.js"
             },
             {
-                "relativePath": "src/components/button/button.stories.js",
-                "test": false,
-                "name": "button.stories.js"
-            },
-            {
                 "relativePath": "src/components/button/button.vue",
                 "test": false,
                 "name": "button.vue"
