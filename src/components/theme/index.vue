@@ -7,17 +7,14 @@
   </div>
 </template>
 
-<script>
-import VueTypes from 'vue-types';
+<script lang="ts">
+import Vue from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
 
-export default {
-  props: {
-    type: VueTypes.oneOf([
-      'light',
-      'dark',
-    ]).def('light'),
-  },
-};
+@Component
+export default class Theme extends Vue {
+  @Prop({ default: 'light' }) type: 'light' | 'dark'
+}
 </script>
 
 <style>

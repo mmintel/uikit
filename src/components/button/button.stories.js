@@ -4,7 +4,7 @@ import Button from '.';
 
 storiesOf('Components', module)
     .add('Button', () => ({
-      components: { Button, Theme },
+      components: { Button },
       props: {
         type: {
           default: select('Type', {

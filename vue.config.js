@@ -11,6 +11,11 @@ module.exports = {
         './assets/styles/globals/config',
         './assets/styles/globals/helpers',
       ]
+    },
+    storybook: {
+      allowedPlugins: [
+        'style-resources-loader',
+      ]
     }
   }
 }

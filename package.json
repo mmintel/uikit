@@ -2,22 +2,13 @@
   "name": "@mmintel/uikit",
   "version": "0.1.0",
   "private": true,
-  "main": "./dist/uikit.common.js",
-  "files": [
-    "dist/*",
-    "src/*",
-    "public/*",
-    "*.json",
-    ".js"
-  ],
   "scripts": {
-    "dev": "npm run storybook:serve",
     "build": "vue-cli-service build --target lib --name uikit src/lib.ts",
     "lint": "vue-cli-service lint",
+    "dev": "npm run storybook:serve",
     "test:unit": "vue-cli-service test:unit",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook",
-    "storybook:build": "vue-cli-service storybook:build -c config/storybook",
-    "prepublish": "npm run lint && npm run test:unit"
+    "storybook:build": "vue-cli-service storybook:build -c config/storybook"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -81,5 +72,13 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    ".js"
+  ],
+  "main": "./dist/uikit.common.js"
 }

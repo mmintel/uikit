@@ -36,7 +36,7 @@ import { Component, Prop } from 'vue-property-decorator';
 @Component({
   name: 'Button'
 })
-export default class extends Vue {
+export default class Button extends Vue {
   @Prop({ default: 'default' }) type: 'default' | 'primary' | 'success' | 'error' | 'link';
   @Prop({ default: 'medium' }) size: 'small' | 'medium' | 'large';
   @Prop() nativeType: 'submit' | 'button';
@@ -81,6 +81,7 @@ export default class extends Vue {
 </script>
 
 <style lang="scss">
+@import '~@/assets/styles/abstracts/sr-only';
 .button {
   $types: (
     default,
