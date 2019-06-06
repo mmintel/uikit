@@ -3,6 +3,9 @@ import { configure, addDecorator } from '@storybook/vue'
 import { withContexts } from '@storybook/addon-contexts/vue';
 import { withKnobs } from '@storybook/addon-knobs';
 import { contexts } from './contexts';
+import '../../src/assets/styles/globals/reset.scss';
+import '../../src/assets/styles/globals/config.scss';
+import '../../src/assets/styles/globals/helpers.scss';
 import '../../plugins/vee-validate';
 import '../../plugins/vue-click-outside';
 import center from './decorators/center';

@@ -7,9 +7,6 @@ module.exports = {
       preProcessor: 'scss',
       patterns: [
         './assets/styles/abstracts/*',
-        './assets/styles/globals/reset',
-        './assets/styles/globals/config',
-        './assets/styles/globals/helpers',
       ]
     },
     storybook: {
