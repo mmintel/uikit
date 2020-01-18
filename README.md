@@ -1,5 +1,7 @@
 # uikit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mmintel/uikit.svg)](https://greenkeeper.io/)
+
 ## Project setup
 ```
 yarn install
